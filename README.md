@@ -1,0 +1,1 @@
+# insights-operator-gathering-rules
