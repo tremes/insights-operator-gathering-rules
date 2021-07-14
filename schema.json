@@ -1,0 +1,229 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "http://example.com/example.json",
+    "type": "object",
+    "title": "The root schema",
+    "description": "The root schema comprises the entire JSON document.",
+    "default": {},
+    "examples": [
+        {
+            "conditions": [
+                {
+                    "type": "alert_is_firing",
+                    "params": {
+                        "name": "SamplesImagestreamImportFailing"
+                    }
+                }
+            ],
+            "gathering_functions": {
+                "gather_logs_of_namespace": {
+                    "namespace": "openshift-cluster-samples-operator",
+                    "keep_lines": 100,
+                    "label_selector": ""
+                },
+                "gather_imagestreams_of_namespace": {
+                    "namespace": "openshift-cluster-samples-operator"
+                }
+            }
+        }
+    ],
+    "required": [
+        "conditions",
+        "gathering_functions"
+    ],
+    "properties": {
+        "conditions": {
+            "$id": "#/properties/conditions",
+            "type": "array",
+            "minItems": 1, 
+            "title": "The conditions schema",
+            "description": "Condition definitions triggering the corresponding gather functions",
+            "default": [],
+            "examples": [
+                [
+                    {
+                        "type": "alert_is_firing",
+                        "params": {
+                            "name": "SamplesImagestreamImportFailing"
+                        }
+                    }
+                ]
+            ],
+            "additionalItems": false,
+            "items": {
+                "$id": "#/properties/conditions/items",
+                "anyOf": [
+                    {
+                        "$id": "#/properties/conditions/items/anyOf/0",
+                        "type": "object",
+                        "title": "The first anyOf schema",
+                        "description": "Condition is a JSON object with two required fields",
+                        "default": {},
+                        "examples": [
+                            {
+                                "type": "alert_is_firing",
+                                "params": {
+                                    "name": "SamplesImagestreamImportFailing"
+                                }
+                            }
+                        ],
+                        "required": [
+                            "type",
+                            "params"
+                        ],
+                        "properties": {
+                            "type": {
+                                "$id": "#/properties/conditions/items/anyOf/0/properties/type",
+                                "type": "string",
+                                "enum": ["alert_is_firing"],
+                                "title": "The type schema",
+                                "description": "Defines a type of the condition",
+                                "default": "",
+                                "examples": [
+                                    "alert_is_firing"
+                                ]
+                            },
+                            "params": {
+                                "$id": "#/properties/conditions/items/anyOf/0/properties/params",
+                                "type": "object",
+                                "title": "The params schema",
+                                "description": "Defines parameters of the condition",
+                                "default": {},
+                                "examples": [
+                                    {
+                                        "name": "SamplesImagestreamImportFailing"
+                                    }
+                                ],
+                                "required": [
+                                    "name"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "$id": "#/properties/conditions/items/anyOf/0/properties/params/properties/name",
+                                        "type": "string",
+                                        "title": "The name schema",
+                                        "description": "An explanation about the purpose of this instance.",
+                                        "default": "",
+                                        "examples": [
+                                            "SamplesImagestreamImportFailing"
+                                        ]
+                                    }
+                                },
+                                "additionalProperties": false
+                            }
+                        },
+                        "additionalProperties": false
+                    }
+                ]
+            }
+        },
+        "gathering_functions": {
+            "$id": "#/properties/gathering_functions",
+            "type": "object",
+            "title": "The gathering_functions schema",
+            "description": "An explanation about the purpose of this instance.",
+            "default": {},
+            "examples": [
+                {
+                    "gather_logs_of_namespace": {
+                        "namespace": "openshift-cluster-samples-operator",
+                        "keep_lines": 100,
+                        "label_selector": ""
+                    },
+                    "gather_imagestreams_of_namespace": {
+                        "namespace": "openshift-cluster-samples-operator"
+                    }
+                }
+            ],
+            "required": [
+                "gather_logs_of_namespace",
+                "gather_imagestreams_of_namespace"
+            ],
+            "properties": {
+                "gather_logs_of_namespace": {
+                    "$id": "#/properties/gathering_functions/properties/gather_logs_of_namespace",
+                    "type": "object",
+                    "title": "The gather_logs_of_namespace schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": {},
+                    "examples": [
+                        {
+                            "namespace": "openshift-cluster-samples-operator",
+                            "keep_lines": 100,
+                            "label_selector": ""
+                        }
+                    ],
+                    "required": [
+                        "namespace",
+                        "keep_lines",
+                        "label_selector"
+                    ],
+                    "properties": {
+                        "namespace": {
+                            "$id": "#/properties/gathering_functions/properties/gather_logs_of_namespace/properties/namespace",
+                            "type": "string",
+                            "title": "The namespace schema",
+                            "pattern": "^openshift-",
+                            "description": "The namespace name. Only namespaces with openshift- prefix are allowed",
+                            "default": "",
+                            "examples": [
+                                "openshift-cluster-samples-operator"
+                            ]
+                        },
+                        "keep_lines": {
+                            "$id": "#/properties/gathering_functions/properties/gather_logs_of_namespace/properties/keep_lines",
+                            "type": "integer",
+                            "title": "The keep_lines schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": 0,
+                            "examples": [
+                                100
+                            ]
+                        },
+                        "label_selector": {
+                            "$id": "#/properties/gathering_functions/properties/gather_logs_of_namespace/properties/label_selector",
+                            "type": "string",
+                            "title": "The label_selector schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                ""
+                            ]
+                        }
+                    },
+                    "additionalProperties": true
+                },
+                "gather_imagestreams_of_namespace": {
+                    "$id": "#/properties/gathering_functions/properties/gather_imagestreams_of_namespace",
+                    "type": "object",
+                    "title": "The gather_imagestreams_of_namespace schema",
+                    "description": "An explanation about the purpose of this instance.",
+                    "default": {},
+                    "examples": [
+                        {
+                            "namespace": "openshift-cluster-samples-operator"
+                        }
+                    ],
+                    "required": [
+                        "namespace"
+                    ],
+                    "properties": {
+                        "namespace": {
+                            "$id": "#/properties/gathering_functions/properties/gather_imagestreams_of_namespace/properties/namespace",
+                            "type": "string",
+                            "title": "The namespace schema",
+                            "description": "An explanation about the purpose of this instance.",
+                            "default": "",
+                            "examples": [
+                                "openshift-cluster-samples-operator"
+                            ]
+                        }
+                    },
+                    "additionalProperties": true
+                }
+            },
+            "additionalProperties": true
+        }
+    },
+    "additionalProperties": true
+}
