@@ -1,1 +1,2 @@
 jsonschema
+pre-commit
