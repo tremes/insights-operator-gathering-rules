@@ -4,7 +4,7 @@ on: [push, pull_request]
 
 jobs:
   validate:
-    runs-on: ubuntu-20.04.2
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
