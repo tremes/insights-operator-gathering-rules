@@ -1,6 +1,6 @@
 # insights-operator-gathering-rules
 
-This repository provides gathering rules for the conditional gatherer 
+This repository provides gathering rules for the conditional gatherer
 in the [Insights Operator](https://github.com/openshift/insights-operator)
 
 How to lint:
