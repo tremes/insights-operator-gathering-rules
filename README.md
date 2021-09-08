@@ -1,7 +1,7 @@
 # Insights Operator Gatherting Conditions
 
 This repository provides gathering conditions for the conditional gatherer
-in the [Insights Operator](https://github.com/openshift/insights-operator) and [Insights Operator Condition Service](https://github.com/redhatinsights/insights-operator-conditional-service)
+in the [Insights Operator](https://github.com/openshift/insights-operator) and [Insights Operator Condition Service](https://github.com/redhatinsights/insights-operator-gathering-conditions-service)
 
 ## Linting
 

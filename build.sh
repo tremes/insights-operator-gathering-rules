@@ -8,4 +8,4 @@ jq --arg VERSION $VERSION \
     -s '{ version: $VERSION, rules: map(.) }' ./conditions/*.json > ./build/rules.json
 
 # Build the image
-podman build -t quay.io/redhatinsights/insights-conditional-service-conditions:latest .
+podman build -t quay.io/redhatinsights/insights-operator-gathering-conditions:latest .
