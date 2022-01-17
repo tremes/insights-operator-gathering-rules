@@ -1,5 +1,8 @@
 FROM registry.access.redhat.com/ubi8/ubi-minimal:latest
 
-WORKDIR /conditions
+COPY . .
 
-COPY ./build/* .
+RUN microdnf install --nodocs -y jq
+
+RUN ./build.sh && \
+    cp -r ./build/* /conditions
