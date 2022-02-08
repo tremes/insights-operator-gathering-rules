@@ -5,17 +5,21 @@ from glob import glob
 from urllib.request import urlopen
 
 from jsonschema import validate
+from termcolor import colored
 
-JSON_SCHEMA_URL = "https://raw.githubusercontent.com/openshift/insights-operator/f9b762149cd10ec98079e48b8a96fc02a2aca3c6/pkg/gatherers/conditional/gathering_rule.schema.json"
+JSON_SCHEMA_URL = "https://raw.githubusercontent.com/openshift/insights-operator/master/pkg/gatherers/conditional/gathering_rule.schema.json"
 
 
 def main() -> int:
     schema = get_schema()
 
-    for path in glob("**/*.json"):
+    for path in glob("conditions/*.json"):
         with open(path) as file:
             rule_content = json.load(file)
+            print(colored(f"Validating file ", "cyan") + colored(path, "yellow"))
             validate(rule_content, schema)
+
+    print(colored("Validation finished successfully", "green"))
 
     return 0
 
