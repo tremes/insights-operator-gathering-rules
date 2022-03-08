@@ -9,5 +9,5 @@ repos:
       - id: validate
         name: validate the gathering rules
         language: python
-        additional_dependencies: ["jsonschema"]
+        additional_dependencies: ["jsonschema", "termcolor"]
         entry: ./validate.py

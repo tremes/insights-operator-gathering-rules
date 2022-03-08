@@ -4,10 +4,22 @@ on: [push, pull_request]
 
 jobs:
   validate:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [3.x]
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - name: Checkout
+        uses: actions/checkout@v2
         with:
-          python-version: "3.x"
-      - uses: pre-commit/action@v2.0.3
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.x
+      - name: Download dependencies
+        run: |
+          pip3 install -r requirements.txt
+      - name: Run validator
+        run: |
+          python validate.py

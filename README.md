@@ -7,8 +7,11 @@ in the [Insights Operator](https://github.com/openshift/insights-operator) and [
 
 ```shell script
 python3 -m venv .env
-source .env/
+source .env/bin/activate
 pip3 install -r requirements.txt
+# to install the precommit script
+pre-commit install
+# to run the precommit script
 pre-commit run --all-files
 ```
 

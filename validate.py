@@ -9,7 +9,6 @@ from termcolor import colored
 
 JSON_SCHEMA_URL = "https://raw.githubusercontent.com/openshift/insights-operator/master/pkg/gatherers/conditional/gathering_rule.schema.json"
 
-
 def main() -> int:
     schema = get_schema()
 
