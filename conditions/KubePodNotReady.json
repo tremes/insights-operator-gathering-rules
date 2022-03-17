@@ -1,17 +1,19 @@
 {
-    "conditions": [
-      {
-        "type": "alert_is_firing",
-        "alert": {
-          "name": "KubePodNotReady"
-        }
-      }
-    ],
-    "gathering_functions": {
-      "containers_logs": {
-        "alert_name": "KubePodNotReady",
-        "tail_lines": 100,
-        "previous": false
+  "conditions": [
+    {
+      "type": "alert_is_firing",
+      "alert": {
+        "name": "KubePodNotReady"
       }
     }
+  ],
+  "gathering_functions": {
+    "containers_logs": {
+      "alert_name": "KubePodNotReady",
+      "tail_lines": 100
+    },
+    "pod_definition": {
+      "alert_name": "KubePodNotReady"
+    }
   }
+}

@@ -3,15 +3,15 @@
     {
       "type": "alert_is_firing",
       "alert": {
-        "name": "KubePodCrashLooping"
+        "name": "PrometheusTargetSyncFailure"
       }
     }
   ],
   "gathering_functions": {
     "containers_logs": {
-      "alert_name": "KubePodCrashLooping",
-      "tail_lines": 20,
-      "previous": true
+      "alert_name": "PrometheusTargetSyncFailure",
+      "container": "prometheus",
+      "tail_lines": 50
     }
   }
 }

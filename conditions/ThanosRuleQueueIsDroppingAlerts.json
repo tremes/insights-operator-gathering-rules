@@ -1,0 +1,17 @@
+{
+  "conditions": [
+    {
+      "type": "alert_is_firing",
+      "alert": {
+        "name": "ThanosRuleQueueIsDroppingAlerts"
+      }
+    }
+  ],
+  "gathering_functions": {
+    "containers_logs": {
+      "alert_name": "ThanosRuleQueueIsDroppingAlerts",
+      "container": "thanos-ruler",
+      "tail_lines": 50
+    }
+  }
+}

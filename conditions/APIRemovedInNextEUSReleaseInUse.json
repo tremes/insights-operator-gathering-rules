@@ -1,15 +1,15 @@
 {
-    "conditions": [
-      {
-        "type": "alert_is_firing",
-        "alert": {
-          "name": "APIRemovedInNextEUSReleaseInUse"
-        }
-      }
-    ],
-    "gathering_functions": {
-      "api_request_counts_of_resource_from_alert": {
-        "alert_name": "APIRemovedInNextEUSReleaseInUse"
+  "conditions": [
+    {
+      "type": "alert_is_firing",
+      "alert": {
+        "name": "APIRemovedInNextEUSReleaseInUse"
       }
     }
+  ],
+  "gathering_functions": {
+    "api_request_counts_of_resource_from_alert": {
+      "alert_name": "APIRemovedInNextEUSReleaseInUse"
+    }
   }
+}
